@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TaskManageSystem</title>
+</head>
+<body>
+    <a th:href="@{/showNewTaskForm}">Add Task</a>
+    <table border="1">
+        <thead>
+        <th>
+            <a th:href="@{'/page' + ${currentPage} + '?sortField=description&sortDir=' + ${reverseSortDir}}">Description</a>
+        </th>
+        <th>
+            <a th:href="@{'/page' + ${currentPage} + '?sortField=status&sortDir=' + ${reverseSortDir}}">Status</a>
+        </th>
+        <th>Actions</th>
+        </thead>
+        <tbody>
+        <tr th:each="task : ${listTasks}">
+            <td th:text="${task.description}"></td>
+            <td th:text="${task.status}"></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
