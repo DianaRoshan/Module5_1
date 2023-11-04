@@ -28,13 +28,8 @@ public class TaskController {
         return "new_task";
     }
     @PostMapping("/saveTask")
-    public String saveTask(Model model,
-                           @RequestParam(value = "desc") String desc,
-                           @RequestParam(value = "status") String status){
-        Task newTask = new Task();
-        newTask.setDescription(desc);
-        newTask.setStatus(Status.valueOf(status));
-        taskService.saveTask(newTask);
+    public String saveTask(@ModelAttribute("task") Task task){
+        taskService.saveTask(task);
         return "redirect:/";
     }
     @GetMapping("/showFormForUpdate/{id}")

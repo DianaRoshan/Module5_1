@@ -4,10 +4,14 @@
     <title>Add Task</title>
 </head>
 <body>
-<form action="#" th:action="@{/saveTask}" th:object="${task}" method="post">
-    <input type="text" th:field="*{description}" placeholder="Task description">
-    <input type="text" th:field="*{status}" placeholder="Task status">
-    <button>Save</button>
+<form action="#" th:action="@{/saveTask}" th:object="${task}" method="POST">
+    <input type="text" th:field="*{description}" placeholder="Task description"/>
+    <select th:field="*{status}">
+        <option value="IN_PROGRESS">IN_PROGRESS</option>
+        <option value="DONE">DONE</option>
+        <option value="PAUSED">PAUSED</option>
+    </select>
+    <button type="submit">Save</button>
 </form>
 </body>
 </html>

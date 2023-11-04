@@ -13,6 +13,7 @@ public class Task {
     @Column(name = "description")
     String description;
     @Enumerated(EnumType.ORDINAL)
+    @Column(columnDefinition = "tinyint")
     Status status;
 
 }
